@@ -1,27 +1,32 @@
 
 export class RotatingShape {
 
-    shape;
+    blocks;
 
     constructor(shape) {
-        this.shape = shape.split("\n")
+        this.blocks = shape.split("\n")
                            .map(s => s.trim())
-                           .map(s => [...s]);
+                           .map(s => [...s]); 
     }
 
     toString() {
-        let s = this.shape.map(row => row.join(""))
-                           .join("\n");
+        let s = this.getShape();
         s += "\n";
         return s;
     }
 
+    getShape() {
+        let s = this.blocks.map(row => row.join(""))
+                           .join("\n");
+        return s;        
+    }
+
     rotateRight() {
         let s = "";
-        let size = this.shape.length;
+        let size = this.blocks.length;
         for (let i = 0; i < size; i++) {
             for(let j = 0; j < size; j++) {
-                s += this.shape[size - j - 1][i];
+                s += this.blocks[size - j - 1][i];
             }
             if (i < size - 1) s+= "\n";
         }

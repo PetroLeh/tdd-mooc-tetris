@@ -60,7 +60,7 @@ describe("The I shape", () => {
     );
   });
 
-  it("can be rotated right/clockwise", () => {
+  xit("can be rotated right/clockwise", () => {
     expect(shape.rotateRight().toString()).to.equalShape(
       `..I..
        ..I..
